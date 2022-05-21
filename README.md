@@ -93,7 +93,7 @@ The following screenshot displays the result of running `docker ps` after succes
 
 Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-List the IP addresses of the machines you are monitoring_
+List the IP addresses of the machines you are monitoring
 •	Web 1: 10.0.0.7 
 •	Web 2: 10.0.0.8
 
@@ -111,5 +111,34 @@ Collects the logs for each virtual machine. It collects traffic from specific co
 
 ### Metricbeat 
 provides information on metric logs for the virtual machines. Information on CPU, Memory Usage, Network stats.
-![Metricbeat status](https://user-images.githubusercontent.com/105944451/169670179-7b95dfe7-11ec-4ced-90c0-074661e53d72.png)
+![Metricbeat status](https://user-images.githubusercontent.com/105944451/169670179-7b95dfe7-11ec-4ced-90c0-074661e53d72.png) 
+
+
+### Using the Playbook
+
+In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
+- Copy the yml file to ansible folder
+- Update the .config file to include remote users and ports. Update the hosts file to include IP addressed of the Web servers and Elk servers.
+- Run the playbook, and navigate to Kibana ((Elk VM public IP):5601) to check that the installation worked as expected.
+
+
+ 1. Which file is the playbook?
+     - Filebeat-playbook.yml & metricbeat-playbook.yml
+     
+ 2. Where do you copy it
+     - To ansible then the roles folder
+  
+ 3. Which file do you update to make Ansible run the playbook on a speific machine? How do I specify which machine to install the ElK server on versus    which to install Filebeat on?
+     - Update the Filebeat-config.yml and specify which machine to install by updating the Host file with the Private IP addresses and selecting which          group to run in ansible. Same for the metricbeat-config.yml
+     
+ 4. Which URL do you navigate to in order to check that the ELK server is running? 
+      - http://[your.ELK-VM.External.IP]:5601/app/kibana
+   
+  
+ ### Bonus
+ Provide the specific commands the the user will need to run to download the playbook, update the files, etc.
+ 
+
+ ![Screen Shot 2022-05-21 at 7 11 58 PM](https://user-images.githubusercontent.com/105944451/169671802-68441296-8f42-4591-9de3-8845bb7dfc6a.png)
+
 
